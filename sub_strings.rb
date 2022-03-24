@@ -32,9 +32,11 @@ words_to_find.each do |word|
   found_words += find_words(word, words_array)
 end
   
-found_words.to_h do |word| 
+unordered_hash = found_words.to_h do |word| 
   [word, found_words.count(word)] 
- end
+end
+
+ordered_hash = unordered_hash.sort_by { |key| key }.to_h
   
 end
 
